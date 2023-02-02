@@ -1,3 +1,5 @@
+/** @type {import('tailwindcss').Config} */
+
 const colors = require("tailwindcss/colors")
 
 module.exports = {
@@ -15,6 +17,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         iw: "url('../public/images/iw.jpg')",
+        spaceland: "url('../public/images/spaceland.jpg')",
       },
       colors: { "dark-blue": "#111827" },
     },

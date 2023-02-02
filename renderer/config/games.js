@@ -1,8 +1,50 @@
 export const GAMES = {
   treyarch: {
-    "Black Ops III": { image: "iw", choices: { "Easter Egg": "iw" } },
+    bo3: {
+      image: "iw",
+      label: "Black Ops III",
+      maps: {
+        shadowOfEvil: {
+          choices: {
+            easterEgg: { image: "iw", label: "Easter Egg" },
+            pap: { image: "iw", label: "Pack A Punch" },
+          },
+          label: "Shadow Of Evil",
+          image: "iw",
+        },
+      },
+    },
   },
   infiniteward: {
-    "Infinite Warfare": { image: "iw", choices: { "Easter Egg": "iw" } },
+    iw: {
+      image: "iw",
+      label: "Infinite Warfare",
+      maps: {
+        spaceland: {
+          choices: {
+            easterEgg: { image: "iw", label: "Easter Egg" },
+            pap: { image: "iw", label: "Pack A Punch" },
+          },
+          label: "Spaceland",
+          image: "spaceland",
+        },
+      },
+    },
+  },
+  sleedgehammer: {
+    ww2: {
+      image: "iw",
+      label: "WW2",
+      maps: {
+        test: {
+          choices: {
+            easterEgg: { image: "iw", label: "Easter Egg" },
+            pap: { image: "iw", label: "Pack A Punch" },
+          },
+          label: "COMING SOON",
+          image: "iw",
+        },
+      },
+    },
   },
 }

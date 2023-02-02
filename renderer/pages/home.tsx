@@ -4,6 +4,7 @@ import ChooseGame from "../components/ChooseGame"
 import ItemsDiv from "../components/ItemsDiv"
 import { GAMES } from "../config/games"
 import clsx from "clsx"
+import Title from "../components/Title"
 
 function Home() {
   return (
@@ -11,24 +12,20 @@ function Home() {
       <Head>
         <title>TITRE</title>
       </Head>
-      <h1 className="p-5 text-center text-2xl font-bold">HOME</h1>
+      <Title>HOME</Title>
       <ItemsDiv>
-        {Object.entries(GAMES).map(([studioName, itemGame]) =>
+        {Object.values(GAMES).map((itemGame) =>
           //   <p key={name}>{name}</p>
-          Object.entries(itemGame).map(([gameName, { image }]) => (
+          Object.entries(itemGame).map(([gameRoute, { image, label }]) => (
             <ChooseGame
-              href={clsx("games/", gameName)}
-              key={gameName}
+              href={clsx("/games/", gameRoute)}
+              key={gameRoute}
               className={`bg-${image}`}
             >
-              {gameName}
+              {label}
             </ChooseGame>
           ))
         )}
-
-        {/* <ChooseGame>Infinite Warfare</ChooseGame>
-        <ChooseGame>Black Ops III</ChooseGame>
-        <ChooseGame>Black Ops IV</ChooseGame> */}
       </ItemsDiv>
     </React.Fragment>
   )

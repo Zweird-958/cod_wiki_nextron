@@ -1,13 +1,12 @@
-import React from "react"
 import type { AppProps } from "next/app"
-import "../styles/globals.css"
 import Link from "next/link"
+import "../styles/globals.css"
 
 const NAV_ITEMS = {
   HOME: "/home",
-  TREYARCH: "studios/treyarch",
-  "INFINITE WARD": "studios/infiniteward",
-  SLEEDGEHAMER: "studios/sleedgehammer",
+  TREYARCH: "/studios/treyarch",
+  "INFINITE WARD": "/studios/infiniteward",
+  SLEEDGEHAMER: "/studios/sleedgehammer",
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -18,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <nav>
           <ul className="flex gap-6">
             {Object.entries(NAV_ITEMS).map(([name, route]) => (
-              <li key={name}>
+              <li key={name} className="hover:underline">
                 <Link href={route}>{name}</Link>
               </li>
             ))}

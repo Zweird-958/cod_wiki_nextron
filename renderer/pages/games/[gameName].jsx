@@ -1,42 +1,43 @@
 import { GAMES } from "../../config/games"
-// import ChooseGame from "../../components/ChooseGame"
-// import ItemsDiv from "../../components/ItemsDiv"
+import ChooseMap from "../../components/ChooseMap"
+import ItemsDiv from "../../components/ItemsDiv"
 import { useRouter } from "next/router"
+import clsx from "clsx"
+import Title from "/components/Title"
 
 const GamePages = () => {
   const router = useRouter()
-  const gameName = router.query.gameName
-  //   const currentGames = GAMES[gameName.trim()]
+  const gameName = router.query.gameName.trim()
 
   const getGame = () => {
     for (const studioGames of Object.values(GAMES)) {
       for (const game of Object.keys(studioGames)) {
-        if (game === gameName.trim()) {
-          return studioGames
+        if (game === gameName) {
+          return studioGames[game]
         }
       }
     }
   }
 
-  console.log(getGame())
-
-  //   const [[result]] = getGame()
-  //   console.log(result)
-  //   console.log(result.choices)
+  const currentGame = getGame()
 
   return (
-    <p>test</p>
-    // <p>{result.choices}</p>
-    // Object.entries(result.choices).map((item) => <p key={item}>{item}</p>)
-    //   result
-    // <ItemsDiv>
-    //   {Object.entries(currentGames).map(([name, image]) => (
-    //     //   <p key={name}>{name}</p>
-    //     <ChooseGame href="/home" key={name} className={`bg-${image}`}>
-    //       {name}
-    //     </ChooseGame>
-    //   ))}
-    // </ItemsDiv>
+    <>
+      <Title>{currentGame.label}</Title>
+      <ItemsDiv>
+        {Object.entries(currentGame.maps).map(
+          ([mapRoute, { image, label }]) => (
+            <ChooseMap
+              href={clsx("/choices/", mapRoute)}
+              key={mapRoute}
+              className={`bg-${image}`}
+            >
+              {label}
+            </ChooseMap>
+          )
+        )}
+      </ItemsDiv>
+    </>
   )
 }
 
