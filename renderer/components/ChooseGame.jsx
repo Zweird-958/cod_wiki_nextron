@@ -1,25 +1,13 @@
-import { motion } from "framer-motion"
-
-const variants = {
-  hide: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-  },
-}
+import LinkImage from "./LinkImage"
+import clsx from "clsx"
 
 const ChooseGame = (props) => {
-  const { children } = props
+  const { children, className, ...otherProps } = props
 
   return (
-    <motion.div
-      whileHover="show"
-      animate="hide"
-      className="m-5 flex h-32 w-32 items-center justify-center rounded bg-blue-600 shadow-md"
-    >
-      <motion.p variants={variants}>{children}</motion.p>
-    </motion.div>
+    <LinkImage className={clsx("h-32 w-32", className)} {...otherProps}>
+      {children}
+    </LinkImage>
   )
 }
 

@@ -12,7 +12,12 @@ module.exports = {
       gray: colors.gray,
       blue: colors.blue,
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        iw: "url('../public/images/iw.jpg')",
+      },
+      colors: { "dark-blue": "#111827" },
+    },
   },
   plugins: [],
 }

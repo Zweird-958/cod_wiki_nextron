@@ -8,9 +8,15 @@
   "scripts": {
     "dev": "nextron",
     "build": "nextron build",
+    "build:all": "nextron build --all",
+    "build:win32": "nextron build --win --ia32",
+    "build:win64": "nextron build --win --x64",
+    "build:mac": "nextron build --mac --x64",
+    "build:linux": "nextron build --linux",
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.1.0",
     "framer-motion": "^9.0.0"
