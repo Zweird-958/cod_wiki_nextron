@@ -1,9 +1,8 @@
-import { GAMES } from "../../config/games"
+import { useRouter } from "next/router"
 import ChooseGame from "../../components/ChooseGame"
 import ItemsDiv from "../../components/ItemsDiv"
-import { useRouter } from "next/router"
+import { GAMES } from "../../config/games"
 import Title from "/components/Title"
-import clsx from "clsx"
 
 const MapPage = () => {
   const router = useRouter()

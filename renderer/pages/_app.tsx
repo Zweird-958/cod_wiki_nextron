@@ -12,7 +12,7 @@ const NAV_ITEMS = {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <header className="bg-dark-blue sticky top-0 flex justify-between p-5 shadow-xl">
+      <header className="bg-dark-blue sticky top-0 z-10 flex justify-between p-5 shadow-xl">
         <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
         <nav>
           <ul className="flex gap-6">

@@ -22,5 +22,5 @@ module.exports = {
       colors: { "dark-blue": "#111827" },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 }

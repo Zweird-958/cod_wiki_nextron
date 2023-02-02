@@ -1,7 +1,16 @@
-const ItemsDiv = (props) => {
-  const { children } = props
+import clsx from "clsx"
 
-  return <div className="flex flex-wrap justify-center">{children}</div>
+const ItemsDiv = (props) => {
+  const { children, className, ...otherProps } = props
+
+  return (
+    <div
+      className={clsx("flex flex-wrap justify-center", className)}
+      {...otherProps}
+    >
+      {children}
+    </div>
+  )
 }
 
 export default ItemsDiv
