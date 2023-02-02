@@ -9,9 +9,13 @@ const GamePages = () => {
   //   const currentGames = GAMES[gameName.trim()]
 
   const getGame = () => {
-    for (const studioGames of Object.values(GAMES))
-      for (const game of Object.keys(studioGames))
-        if (game === gameName.trim()) return studioGames
+    for (const studioGames of Object.values(GAMES)) {
+      for (const game of Object.keys(studioGames)) {
+        if (game === gameName.trim()) {
+          return studioGames
+        }
+      }
+    }
   }
 
   console.log(getGame())
