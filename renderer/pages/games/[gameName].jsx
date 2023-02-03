@@ -7,7 +7,8 @@ import Title from "/components/Title"
 
 const GamePages = () => {
   const router = useRouter()
-  const gameName = router.query.gameName.trim()
+  const gameName =
+    router.query.gameName !== undefined && router.query.gameName.trim()
 
   const getGame = () => {
     for (const studioGames of Object.values(GAMES)) {

@@ -6,7 +6,8 @@ import Title from "/components/Title"
 
 const MapPage = () => {
   const router = useRouter()
-  const mapName = router.query.mapName.trim()
+  const mapName =
+    router.query.mapName !== undefined && router.query.mapName.trim()
 
   const getMap = () => {
     for (const studioGames of Object.values(GAMES)) {
