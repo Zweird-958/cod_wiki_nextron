@@ -16,8 +16,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        iw: "url('../public/images/iw.jpg')",
-        spaceland: "url('../public/images/spaceland.jpg')",
+        iw: "url('../public/images/iw/cover.jpg')",
+        spaceland: "url('../public/images/iw/spaceland/cover.jpg')",
       },
       colors: { "dark-blue": "#111827" },
     },
