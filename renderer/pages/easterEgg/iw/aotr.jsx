@@ -8,10 +8,20 @@ import Image from "next/image"
 const EasterEggSpaceland = () => {
   const easterEggImages = "/../public/images/iw/spaceland/easterEgg/"
   const [showImage, setShowImage] = useState("hidden")
-  // const [currentImage, setCurrentImage] = useState("")
+  const [currentImage, setCurrentImage] = useState("")
 
-  const clickImage = () => {
+  const clickImage = (imageSrc) => () => {
+    setCurrentImage(imageSrc)
     setShowImage(showImage === "hidden" ? "" : "hidden")
+  }
+
+  const images = {
+    first: `${easterEggImages}step1/first.png`,
+    second: `${easterEggImages}step1/second.png`,
+    third: `${easterEggImages}step1/third.png`,
+    fourth: `${easterEggImages}step1/fourth.png`,
+    fifth: `${easterEggImages}step1/fifth.png`,
+    sixth: `${easterEggImages}step1/sixth.png`,
   }
 
   return (
@@ -26,9 +36,21 @@ const EasterEggSpaceland = () => {
         <SecondTitle>Etape 1</SecondTitle>
         <TextWithImageBelow
           items={[
-            { src: `${easterEggImages}step1/first.png`, alt: "test" },
-            { src: `${easterEggImages}step1/second.png`, alt: "test" },
-            { src: `${easterEggImages}step1/third.png`, alt: "test" },
+            {
+              src: images.first,
+              alt: "test",
+              onClick: clickImage(images.first),
+            },
+            {
+              src: images.second,
+              alt: "test",
+              onClick: clickImage(images.second),
+            },
+            {
+              src: images.third,
+              alt: "test",
+              onClick: clickImage(images.third),
+            },
           ]}
         >
           Vous allez récupérer des membres d'un zombie, vous aurez besoin du
@@ -38,9 +60,21 @@ const EasterEggSpaceland = () => {
         </TextWithImageBelow>
         <TextWithImageBelow
           items={[
-            { src: `${easterEggImages}step1/fourth.png`, alt: "test" },
-            { src: `${easterEggImages}step1/fifth.png`, alt: "test" },
-            { src: `${easterEggImages}step1/sixth.png`, alt: "test" },
+            {
+              src: images.fourth,
+              alt: "test",
+              onClick: clickImage(images.fourth),
+            },
+            {
+              src: images.fifth,
+              alt: "test",
+              onClick: clickImage(images.fifth),
+            },
+            {
+              src: images.sixth,
+              alt: "test",
+              onClick: clickImage(images.sixth),
+            },
           ]}
           onClick={clickImage}
         >
@@ -48,33 +82,23 @@ const EasterEggSpaceland = () => {
           à côté du Pack A Punch, sur un banc de table entre le piège manège et
           le crocodile ou sur une poubelle à l'étage de la salle d'arcade.
         </TextWithImageBelow>
-        {/* <img src="/../public/images/iw.jpg" className="h-32 w-64" alt="step1" /> */}
       </div>
       <div
         className={clsx(
           "fixed top-0 left-0 right-0 bottom-0 z-50 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-75",
           showImage
         )}
+        onClick={clickImage(undefined)}
       >
         <div className="relative h-4/6 w-4/6">
           <Image
-            src={`${easterEggImages}step1/fourth.png`}
+            src={currentImage}
             layout="fill"
-            // width={750}
-            // height={500}
-            // style={{ width: "100%" }}
             className="rounded"
             alt="test"
           />
         </div>
       </div>
-
-      {/* <div class="pin-t pin-l fixed m-auto h-64 w-64">
-        <img
-          src={`${easterEggImages}step1/fourth.png`}
-          class="h-full w-full object-cover"
-        />
-      </div> */}
     </>
   )
 }
