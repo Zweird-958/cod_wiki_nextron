@@ -28,6 +28,14 @@ export const GAMES = {
           label: "Spaceland",
           image: "spaceland",
         },
+        aotr: {
+          choices: {
+            easterEgg: { image: "iw", label: "Easter Egg" },
+            pap: { image: "iw", label: "Pack A Punch" },
+          },
+          label: "Attack Of The Radioative ",
+          image: "spaceland",
+        },
       },
     },
   },
