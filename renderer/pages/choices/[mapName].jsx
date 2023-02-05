@@ -2,6 +2,7 @@ import { useRouter } from "next/router"
 import ChooseGame from "../../components/ChooseGame"
 import ItemsDiv from "../../components/ItemsDiv"
 import { GAMES } from "../../config/games"
+import getMapGameAndRoute from "../../utils/getMapGameAndRoute"
 import Title from "/components/Title"
 
 const MapPage = () => {
@@ -9,23 +10,7 @@ const MapPage = () => {
   const mapName =
     router.query.mapName !== undefined && router.query.mapName.trim()
 
-  const getMap = () => {
-    for (const studioGames of Object.values(GAMES)) {
-      for (const game of Object.keys(studioGames)) {
-        for (const map of Object.keys(studioGames[game].maps)) {
-          if (map === mapName) {
-            return {
-              gameRoute: game,
-              mapRoute: mapName,
-              currentMap: studioGames[game].maps[mapName],
-            }
-          }
-        }
-      }
-    }
-  }
-
-  const { gameRoute, mapRoute, currentMap } = getMap()
+  const { gameRoute, mapRoute, currentMap } = getMapGameAndRoute(mapName)
 
   return (
     <>
