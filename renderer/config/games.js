@@ -36,6 +36,14 @@ export const GAMES = {
           label: "Attack Of The Radioative ",
           image: "spaceland",
         },
+        test: {
+          choices: {
+            easterEgg: { image: "iw", label: "Easter Egg" },
+            pap: { image: "iw", label: "Pack A Punch" },
+          },
+          label: "TEST",
+          image: "spaceland",
+        },
       },
     },
   },
