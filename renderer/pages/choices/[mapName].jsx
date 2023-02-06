@@ -1,7 +1,6 @@
 import { useRouter } from "next/router"
 import ChooseGame from "../../components/ChooseGame"
 import ItemsDiv from "../../components/ItemsDiv"
-import { GAMES } from "../../config/games"
 import getMapGameAndRoute from "../../utils/getMapGameAndRoute"
 import Title from "/components/Title"
 
@@ -10,7 +9,7 @@ const MapPage = () => {
   const mapName =
     router.query.mapName !== undefined && router.query.mapName.trim()
 
-  const { gameRoute, mapRoute, currentMap } = getMapGameAndRoute(mapName)
+  const { mapRoute, currentMap } = getMapGameAndRoute(mapName)
 
   return (
     <>
@@ -19,7 +18,7 @@ const MapPage = () => {
         {Object.entries(currentMap.choices).map(
           ([choiceRoute, { image, label }]) => (
             <ChooseGame
-              href={`/${choiceRoute}/${gameRoute}/${mapRoute}`}
+              href={`/${choiceRoute}/${mapRoute}`}
               key={choiceRoute}
               className={`bg-${image}`}
             >
