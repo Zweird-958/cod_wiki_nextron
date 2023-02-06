@@ -16,18 +16,39 @@ const MAPS = {
       ),
     },
   ],
+  spaceland: [
+    { text: "dsfdsfdscsfdsdfsd" },
+
+    [
+      {
+        text: "Vous devrez tout d'abord construire le SETI-COM. Il y a 3 pièces récupérer. La première est le parapluie, elle peut être trouver sur un banc à côté des tobogans, sur un comptoir à Polar Peak ou au sol à côté du piège de la fusée.",
+        images: ["step1/first.png", "step1/second.png"],
+      },
+      {
+        text: "Il faudra ensuite trouver une calculatrice, elle se situe sur un banc à côté du Pack A Punch, sur un banc de table entre le piège manège et le crocodile ou sur une poubelle à l'étage de la salle d'arcade.",
+        images: [""],
+      },
+    ],
+    { text: "", images: [""] },
+    { text: "", images: [""] },
+    { text: "", images: [""] },
+    { text: "", images: [""] },
+    { text: "", images: [""] },
+  ],
   aotr: [
     {
       text: "Le secret est faisable de 1 à 4 joueurs. Vous aurez besoin d'avoir activer le pack à punch également.",
     },
-    {
-      images: [],
-      text: "Vous allez récupérer des membres d'un zombie, vous aurez besoin du couperet qui se situé dans un requin dans le magasin. Le premier membre est son bras gauche, pour cela il suffit de tuer un zombie soldat (le premier, apparaît manche 5) avec le couperet.",
-    },
-    {
-      images: [],
-      text: "Récupérer sa jambe gauche dans l'arbre à l'aide d'une grenade. Récupérer la pièce à côté au niveau des grillages. Ensuite sous la voiture il y a une pièce.",
-    },
+    [
+      {
+        images: [],
+        text: "Vous allez récupérer des membres d'un zombie, vous aurez besoin du couperet qui se situé dans un requin dans le magasin. Le premier membre est son bras gauche, pour cela il suffit de tuer un zombie soldat (le premier, apparaît manche 5) avec le couperet.",
+      },
+      {
+        images: [],
+        text: "Récupérer sa jambe gauche dans l'arbre à l'aide d'une grenade. Récupérer la pièce à côté au niveau des grillages. Ensuite sous la voiture il y a une pièce.",
+      },
+    ],
     {
       images: [],
       text: "Cassez le miroir dans les toilettes et récupérer le morceau. Il y a une pièce sur un banc dans le camping. En allant vers la plage vous aurez une pièce sur un banc.",
