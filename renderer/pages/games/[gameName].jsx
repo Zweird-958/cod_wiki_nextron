@@ -31,7 +31,7 @@ const GamePages = () => {
             <ChooseMap
               href={clsx("/choices/", mapRoute)}
               key={mapRoute}
-              className={`bg-${image}`}
+              className={`bg-[url('.. /public/images/iw/cover.jpg')]`}
             >
               {label}
             </ChooseMap>

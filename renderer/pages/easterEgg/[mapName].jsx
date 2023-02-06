@@ -2,12 +2,12 @@ import clsx from "clsx"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import SecondTitle from "../../../components/SecondTitle"
-import Text from "../../../components/Text"
-import TextWithImageBelow from "../../../components/TextWithImageBelow"
-import Title from "../../../components/Title"
-import MAPS from "../../../config/easterEgg"
-import getMapGameAndRoute from "../../../utils/getMapGameAndRoute"
+import SecondTitle from "../../components/SecondTitle"
+import Text from "../../components/Text"
+import TextWithImageBelow from "../../components/TextWithImageBelow"
+import Title from "../../components/Title"
+import MAPS from "../../config/easterEgg"
+import getMapGameAndRoute from "../../utils/getMapGameAndRoute"
 
 const EasterEggMap = () => {
   const router = useRouter()
@@ -29,6 +29,21 @@ const EasterEggMap = () => {
     setShowImage(showImage === "hidden" ? "" : "hidden")
   }
 
+  const createComponent = (item, index) => {
+    return (
+      <TextWithImageBelow
+        key={index}
+        items={item.images.map((image) => ({
+          src: easterEggImages + image,
+          alt: "test",
+          onClick: clickImage(easterEggImages + image),
+        }))}
+      >
+        {item.text}
+      </TextWithImageBelow>
+    )
+  }
+
   return (
     <div className="">
       <Title>Easter Egg</Title>
@@ -42,15 +57,11 @@ const EasterEggMap = () => {
           ) : (
             <>
               <SecondTitle>ETAPE {index}</SecondTitle>
-              <TextWithImageBelow
-                items={step.images.map((image) => ({
-                  src: easterEggImages + image,
-                  alt: "test",
-                  onClick: clickImage(easterEggImages + image),
-                }))}
-              >
-                {step.text}
-              </TextWithImageBelow>
+              {Array.isArray(step)
+                ? step.map((item, itemIndex) =>
+                    createComponent(item, itemIndex)
+                  )
+                : createComponent(step, index)}
             </>
           )}
         </>

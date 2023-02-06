@@ -20,7 +20,8 @@ function Home() {
             <ChooseGame
               href={clsx("/games/", gameRoute)}
               key={gameRoute}
-              className={`bg-${image}`}
+              test={`../public/images/${gameRoute}/cover.jpg`}
+              className={"text-red-500"}
             >
               {label}
             </ChooseGame>
