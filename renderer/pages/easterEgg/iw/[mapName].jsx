@@ -11,6 +11,9 @@ import getMapGameAndRoute from "../../../utils/getMapGameAndRoute"
 
 const EasterEggMap = () => {
   const router = useRouter()
+  const [showImage, setShowImage] = useState("hidden")
+  const [currentImage, setCurrentImage] = useState("")
+
   const mapName =
     router.query.mapName !== undefined && router.query.mapName.trim()
 
@@ -20,9 +23,6 @@ const EasterEggMap = () => {
 
   const { gameRoute } = getMapGameAndRoute(mapName)
   const easterEggImages = `/../public/images/${gameRoute}/${mapName}/easterEgg/`
-
-  const [showImage, setShowImage] = useState("hidden")
-  const [currentImage, setCurrentImage] = useState("")
 
   const clickImage = (imageSrc) => () => {
     setCurrentImage(imageSrc)
