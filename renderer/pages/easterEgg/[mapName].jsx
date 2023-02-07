@@ -2,12 +2,12 @@ import clsx from "clsx"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import SecondTitle from "../../components/SecondTitle"
-import Text from "../../components/Text"
-import TextWithImageBelow from "../../components/TextWithImageBelow"
-import Title from "../../components/Title"
-import MAPS from "../../config/easterEgg"
-import getMapGameAndRoute from "../../utils/getMapGameAndRoute"
+import SecondTitle from "@/components/SecondTitle"
+import Text from "@/components/Text"
+import TextWithImageBelow from "@/components/TextWithImageBelow"
+import Title from "@/components/Title"
+import MAPS from "@/config/easterEgg"
+import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
 
 const EasterEggMap = () => {
   const router = useRouter()
@@ -22,7 +22,7 @@ const EasterEggMap = () => {
   }
 
   const { gameRoute } = getMapGameAndRoute(mapName)
-  const easterEggImages = `/../public/images/${gameRoute}/${mapName}/easterEgg/`
+  const easterEggImages = `/images/${gameRoute}/${mapName}/easterEgg/`
 
   const clickImage = (imageSrc) => () => {
     setCurrentImage(imageSrc)

@@ -1,11 +1,9 @@
-import GameScreen from "./GameScreen"
-import ItemsDiv from "./ItemsDiv"
-import Text from "./Text"
+import GameScreen from "@/components/GameScreen"
+import ItemsDiv from "@/components/ItemsDiv"
+import Text from "@/components/Text"
 
 const TextWithImageBelow = (props) => {
   const { children, items } = props
-
-  console.log(items)
 
   return (
     <>

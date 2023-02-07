@@ -1,9 +1,9 @@
-import { GAMES } from "../../config/games"
-import ChooseMap from "../../components/ChooseMap"
-import ItemsDiv from "../../components/ItemsDiv"
-import { useRouter } from "next/router"
 import clsx from "clsx"
-import Title from "/components/Title"
+import { useRouter } from "next/router"
+import ChooseMap from "@/components/ChooseMap"
+import ItemsDiv from "@/components/ItemsDiv"
+import { GAMES } from "@/config/games"
+import Title from "@/components/Title"
 
 const GamePages = () => {
   const router = useRouter()
@@ -26,17 +26,15 @@ const GamePages = () => {
     <>
       <Title>{currentGame.label}</Title>
       <ItemsDiv>
-        {Object.entries(currentGame.maps).map(
-          ([mapRoute, { image, label }]) => (
-            <ChooseMap
-              href={clsx("/choices/", mapRoute)}
-              key={mapRoute}
-              className={`bg-[url('.. /public/images/iw/cover.jpg')]`}
-            >
-              {label}
-            </ChooseMap>
-          )
-        )}
+        {Object.entries(currentGame.maps).map(([mapRoute, { label }]) => (
+          <ChooseMap
+            href={clsx("/choices/", mapRoute)}
+            key={mapRoute}
+            url={`/images/${gameName}/${mapRoute}/cover.jpg`}
+          >
+            {label}
+          </ChooseMap>
+        ))}
       </ItemsDiv>
     </>
   )

@@ -1,6 +1,6 @@
-import { GAMES } from "../../config/games"
-import ChooseGame from "../../components/ChooseGame"
-import ItemsDiv from "../../components/ItemsDiv"
+import { GAMES } from "@/config/games"
+import ChooseGame from "@/components/ChooseGame"
+import ItemsDiv from "@/components/ItemsDiv"
 import { useRouter } from "next/router"
 
 const StudioPage = () => {

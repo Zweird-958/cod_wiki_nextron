@@ -7,5 +7,14 @@
   ],
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@": ["/*"],
+      "@/components/*": ["components/*"],
+      "@/images/*": ["public/images/*"],
+      "@/config/*": ["config/*"],
+      "@/utils/*": ["utils/*"],
+    }}
 }

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router"
-import ChooseGame from "../../components/ChooseGame"
-import ItemsDiv from "../../components/ItemsDiv"
-import getMapGameAndRoute from "../../utils/getMapGameAndRoute"
-import Title from "/components/Title"
+import ChooseGame from "@/components/ChooseGame"
+import ItemsDiv from "@/components/ItemsDiv"
+import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
+import Title from "@/components/Title"
 
 const MapPage = () => {
   const router = useRouter()
