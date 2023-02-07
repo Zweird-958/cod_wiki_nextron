@@ -1,10 +1,10 @@
+import ChooseGame from "@/components/ChooseGame"
+import ItemsDiv from "@/components/ItemsDiv"
+import Title from "@/components/Title"
+import { GAMES } from "@/config/games"
+import clsx from "clsx"
 import Head from "next/head"
 import React from "react"
-import ChooseGame from "../components/ChooseGame"
-import ItemsDiv from "../components/ItemsDiv"
-import { GAMES } from "../config/games"
-import clsx from "clsx"
-import Title from "../components/Title"
 
 function Home() {
   return (
@@ -16,12 +16,11 @@ function Home() {
       <ItemsDiv>
         {Object.values(GAMES).map((itemGame) =>
           //   <p key={name}>{name}</p>
-          Object.entries(itemGame).map(([gameRoute, { image, label }]) => (
+          Object.entries(itemGame).map(([gameRoute, { label }]) => (
             <ChooseGame
               href={clsx("/games/", gameRoute)}
               key={gameRoute}
-              test={`../public/images/${gameRoute}/cover.jpg`}
-              className={"text-red-500"}
+              url={`images/${gameRoute}/cover.jpg`}
             >
               {label}
             </ChooseGame>

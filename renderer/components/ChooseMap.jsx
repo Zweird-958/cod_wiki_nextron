@@ -1,4 +1,4 @@
-import LinkImage from "./LinkImage"
+import LinkImage from "@/components/LinkImage"
 import clsx from "clsx"
 
 const ChooseMap = (props) => {

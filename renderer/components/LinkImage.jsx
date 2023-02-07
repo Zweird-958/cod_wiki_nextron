@@ -14,7 +14,7 @@ const variants = {
 }
 
 const LinkImage = (props) => {
-  const { children, className, href, ...otherProps } = props
+  const { children, className, href, url, ...otherProps } = props
 
   return (
     <Link href={href}>
@@ -26,6 +26,9 @@ const LinkImage = (props) => {
           "m-5 flex cursor-pointer items-center justify-center rounded bg-blue-600 bg-cover bg-center shadow-md grayscale hover:grayscale-0",
           className
         )}
+        style={{
+          backgroundImage: `url(${url})`,
+        }}
         {...otherProps}
       >
         <motion.p variants={variants}>{children}</motion.p>
