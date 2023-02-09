@@ -6,7 +6,7 @@ import clsx from "clsx"
 import Head from "next/head"
 import React from "react"
 
-function Home() {
+const Home = () => {
   return (
     <React.Fragment>
       <Head>
