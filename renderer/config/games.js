@@ -14,11 +14,11 @@ export const GAMES = {
         spaceland: {
           label: "Spaceland",
         },
-        aotr: {
-          label: "Attack Of The Radioative ",
-        },
         ritr: {
           label: "Rave In The Redwoods",
+        },
+        aotr: {
+          label: "Attack Of The Radioative ",
         },
       },
     },
