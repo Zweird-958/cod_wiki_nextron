@@ -38,6 +38,15 @@ const MAPS = {
     ],
     pap: {},
   },
+  ritr: {
+    easterEgg: {},
+    pap: [
+      {
+        text: "Vous devrez récupérer 2 bobines la première se trouve à côté du bateau et la deuxième à côté du bûcher au niveau de la maison sur l’île. Vous aurez juste à placer les bobines et l’accès au Pack A Punch sera ouvert.",
+        images: [],
+      },
+    ],
+  },
   aotr: {
     easterEgg: [
       {
