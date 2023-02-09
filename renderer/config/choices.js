@@ -1,4 +1,4 @@
-import DownloadFile from "../components/DownloadFile"
+import RedLink from "../components/RedLink"
 
 const MAPS = {
   spaceland: {
@@ -39,11 +39,26 @@ const MAPS = {
     pap: {},
   },
   ritr: {
-    easterEgg: {},
+    easterEgg: [
+      {
+        text: [
+          "Le secret est faisable de 1 à 4 joueurs, les armes spéciales ne sont pas nécessaires mais fortement conseillé. Tout comme le",
+          <RedLink key="ritrpap" href="/pap/ritr">
+            Pack A Punch
+          </RedLink>,
+        ],
+      },
+    ],
     pap: [
       {
         text: "Vous devrez récupérer 2 bobines la première se trouve à côté du bateau et la deuxième à côté du bûcher au niveau de la maison sur l’île. Vous aurez juste à placer les bobines et l’accès au Pack A Punch sera ouvert.",
         images: [],
+      },
+    ],
+    bateau: [
+      {
+        text: "La première pièce est le moteur situé contre un pilier en pierre. La deuxième pièce se trouve à l’étage du spawn dans la pièce de mastodonte. La dernière pièce se trouve à la Rave Party.",
+        images: ["", "", ""],
       },
     ],
   },
@@ -122,13 +137,12 @@ const MAPS = {
           images: [],
           text: [
             "Il faudra donc mettre la couleur correspondante pour voir les bonnes valeurs des ingrédients sur les panneaux. Pour la suite nous allons utiliser un",
-            <DownloadFile
+            <RedLink
               key="programme"
               href="https://github.com/Kenshin9977/aotrt-chemicals/releases/download/1.0/AOTRT.-.Chemicals.FR.v1.0.exe"
             >
-              {" "}
-              programme{" "}
-            </DownloadFile>,
+              programme
+            </RedLink>,
             " développé par Kenshin9977.",
           ],
         },
