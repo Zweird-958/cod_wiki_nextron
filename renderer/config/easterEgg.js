@@ -17,23 +17,38 @@ const MAPS = {
     },
   ],
   spaceland: [
-    { text: "dsfdsfdscsfdsdfsd" },
+    {
+      text: "Le secret est faisable de 1 à 4 joueurs, vous aurez besoin du Pack à Punch et d’au moins une arme spéciale (une par joueur est recommandé).",
+    },
 
     [
       {
         text: "Vous devrez tout d'abord construire le SETI-COM. Il y a 3 pièces récupérer. La première est le parapluie, elle peut être trouver sur un banc à côté des tobogans, sur un comptoir à Polar Peak ou au sol à côté du piège de la fusée.",
-        images: ["step1/first.png", "step1/second.png"],
+        images: ["first.png", "second.png"],
       },
       {
         text: "Il faudra ensuite trouver une calculatrice, elle se situe sur un banc à côté du Pack A Punch, sur un banc de table entre le piège manège et le crocodile ou sur une poubelle à l'étage de la salle d'arcade.",
         images: [""],
       },
+      {
+        text: "Et enfin la boom-box, elle peut se trouver sur le pont inférieur entre le spawn et le middle, sur le comptoir au levier du courant vers le crocodile, ou sur le comptoir de cuisine dans les sous-sol.",
+        images: [],
+      },
     ],
-    { text: "", images: [""] },
-    { text: "", images: [""] },
-    { text: "", images: [""] },
-    { text: "", images: [""] },
-    { text: "", images: [""] },
+    [
+      {
+        text: "Une fois le SETI-COM construit allez parler au DJ, et faudra patienter quelques manches et des notes retentiront, votre écran tremblera. Retournez voir le DJ, il vous donnera le SETI-COM.",
+        images: [],
+      },
+      {
+        text: "Maintenant vous devrez trouver des lieux où le poser, pour savoir s’il s’agit du bon lieu votre écran tremblera et vous pourrez le placer. Vous devrez le poser 3 fois, une par manche, et le protéger des zombies un certains temps, 60; 90 et 120 secondes, une bonus munition max sera donné à chaque fois la protection terminé.",
+        images: [],
+      },
+      {
+        text: "Lorsque vous avez fini la 3ème protection allez parler le DJ, patientez 2 manches et retournez lui parler encore, il vous donnera des haut-parleurs. Il faudra les placer au chaque emplacement au middle. Et tous les joueurs devront utiliser leur touche d’action en même temps ce qui lancera le combat de boss.",
+        images: [],
+      },
+    ],
   ],
   aotr: [
     {
