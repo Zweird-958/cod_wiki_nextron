@@ -1,4 +1,4 @@
-const DownloadFile = (props) => {
+const RedLink = (props) => {
   const { children, ...otherProps } = props
 
   return (
@@ -9,4 +9,4 @@ const DownloadFile = (props) => {
   )
 }
 
-export default DownloadFile
+export default RedLink
