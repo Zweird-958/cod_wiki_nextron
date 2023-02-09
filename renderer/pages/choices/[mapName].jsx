@@ -32,15 +32,6 @@ const MapPage = () => {
       </ItemsDiv>
     </>
   )
-
-  // <ItemsDiv>
-  //   {Object.entries(currentGames).map(([name, image]) => (
-  //     //   <p key={name}>{name}</p>
-  //     <ChooseGame href="/home" key={name} className={`bg-${image}`}>
-  //       {name}
-  //     </ChooseGame>
-  //   ))}
-  // </ItemsDiv>
 }
 
 export default MapPage
