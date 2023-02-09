@@ -1,15 +1,17 @@
-import clsx from "clsx"
-import Image from "next/image"
-import { useRouter } from "next/router"
-import { useState } from "react"
 import SecondTitle from "@/components/SecondTitle"
 import Text from "@/components/Text"
 import TextWithImageBelow from "@/components/TextWithImageBelow"
 import Title from "@/components/Title"
-import MAPS from "@/config/easterEgg"
+import CHOICES_LABEL from "@/config/choicesLabel"
+import MAPS from "@/config/choices"
 import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
+import clsx from "clsx"
+import DefaultErrorPage from "next/error"
+import Image from "next/image"
+import { useRouter } from "next/router"
+import { useState } from "react"
 
-const EasterEggMap = () => {
+const MapChosen = () => {
   const router = useRouter()
   const [showImage, setShowImage] = useState("hidden")
   const [currentImage, setCurrentImage] = useState("")
@@ -17,12 +19,15 @@ const EasterEggMap = () => {
   const mapName =
     router.query.mapName !== undefined && router.query.mapName.trim()
 
-  if (!mapName) {
+  const choiceName =
+    router.query.choiceName !== undefined && router.query.choiceName.trim()
+
+  if (!mapName || !choiceName) {
     return
   }
 
   const { gameRoute } = getMapGameAndRoute(mapName)
-  const easterEggImages = `/images/${gameRoute}/${mapName}/easterEgg/`
+  const imagesFolder = `/images/${gameRoute}/${mapName}/${choiceName}/`
 
   const clickImage = (imageSrc) => () => {
     setCurrentImage(imageSrc)
@@ -34,10 +39,10 @@ const EasterEggMap = () => {
       <TextWithImageBelow
         key={index}
         items={item.images.map((image) => ({
-          src: `${easterEggImages}step${globalIndex ?? index}/${image}`,
+          src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
           alt: "test",
           onClick: clickImage(
-            `${easterEggImages}step${globalIndex ?? index}/${image}`
+            `${imagesFolder}step${globalIndex ?? index}/${image}`
           ),
         }))}
       >
@@ -46,10 +51,16 @@ const EasterEggMap = () => {
     )
   }
 
+  const mapObject = MAPS[mapName][choiceName]
+
+  if (!mapObject) {
+    return <DefaultErrorPage statusCode={404} />
+  }
+
   return (
     <div className="">
-      <Title>Easter Egg</Title>
-      {MAPS[mapName].map((step, index) => (
+      <Title>{CHOICES_LABEL[choiceName] ?? choiceName}</Title>
+      {mapObject.map((step, index) => (
         <>
           {index === 0 ? (
             <>
@@ -89,4 +100,4 @@ const EasterEggMap = () => {
   )
 }
 
-export default EasterEggMap
+export default MapChosen
