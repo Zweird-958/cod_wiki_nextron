@@ -36,18 +36,24 @@ const MapChosen = () => {
 
   const createComponent = (item, index, globalIndex) => {
     return (
-      <TextWithImageBelow
-        key={index}
-        items={item.images.map((image) => ({
-          src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
-          alt: "test",
-          onClick: clickImage(
-            `${imagesFolder}step${globalIndex ?? index}/${image}`
-          ),
-        }))}
-      >
-        {item.text}
-      </TextWithImageBelow>
+      <>
+        {item.images ? (
+          <TextWithImageBelow
+            key={index}
+            items={item.images.map((image) => ({
+              src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
+              alt: "test",
+              onClick: clickImage(
+                `${imagesFolder}step${globalIndex ?? index}/${image}`
+              ),
+            }))}
+          >
+            {item.text}
+          </TextWithImageBelow>
+        ) : (
+          <Text>{item.text}</Text>
+        )}
+      </>
     )
   }
 
@@ -62,14 +68,16 @@ const MapChosen = () => {
       <Title>{CHOICES_LABEL[choiceName] ?? choiceName}</Title>
       {mapObject.map((step, index) => (
         <>
-          {index === 0 ? (
+          {index === 0 && choiceName === "easterEgg" ? (
             <>
               <SecondTitle>{step.label ?? `Prérequis`}</SecondTitle>
-              <Text>{step.text}</Text>
+              {createComponent(step)}
             </>
           ) : (
             <>
-              <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
+              {!step.label && index > 0 && (
+                <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
+              )}
               {Array.isArray(step)
                 ? step.map((item, itemIndex) =>
                     createComponent(item, itemIndex, index)
