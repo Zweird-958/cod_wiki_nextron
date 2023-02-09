@@ -36,6 +36,7 @@ const MAPS = {
         },
       ],
     ],
+    pap: {},
   },
   aotr: {
     easterEgg: [
