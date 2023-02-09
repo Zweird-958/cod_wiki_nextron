@@ -29,14 +29,16 @@ const EasterEggMap = () => {
     setShowImage(showImage === "hidden" ? "" : "hidden")
   }
 
-  const createComponent = (item, index) => {
+  const createComponent = (item, index, globalIndex) => {
     return (
       <TextWithImageBelow
         key={index}
         items={item.images.map((image) => ({
-          src: easterEggImages + image,
+          src: `${easterEggImages}step${globalIndex ?? index}/${image}`,
           alt: "test",
-          onClick: clickImage(easterEggImages + image),
+          onClick: clickImage(
+            `${easterEggImages}step${globalIndex ?? index}/${image}`
+          ),
         }))}
       >
         {item.text}
@@ -51,15 +53,15 @@ const EasterEggMap = () => {
         <>
           {index === 0 ? (
             <>
-              <SecondTitle>Prérequis</SecondTitle>
+              <SecondTitle>{step.label ?? `Prérequis`}</SecondTitle>
               <Text>{step.text}</Text>
             </>
           ) : (
             <>
-              <SecondTitle>ETAPE {index}</SecondTitle>
+              <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
               {Array.isArray(step)
                 ? step.map((item, itemIndex) =>
-                    createComponent(item, itemIndex)
+                    createComponent(item, itemIndex, index)
                   )
                 : createComponent(step, index)}
             </>
