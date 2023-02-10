@@ -1,6 +1,6 @@
 import { app } from "electron"
 import serve from "electron-serve"
-import { createWindow } from "./helpers"
+import createWindow from "./helpers/create-window"
 
 const isProd: boolean = process.env.NODE_ENV === "production"
 
@@ -18,6 +18,8 @@ if (isProd) {
     height: 600,
   })
 
+
+  
   mainWindow.setMenu(null)
 
   if (isProd) {
@@ -28,6 +30,7 @@ if (isProd) {
     mainWindow.webContents.openDevTools()
   }
 })()
+
 
 app.on("window-all-closed", () => {
   app.quit()
