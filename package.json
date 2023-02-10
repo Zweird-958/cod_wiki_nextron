@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "my-nextron-app",
-  "description": "My application description",
+  "name": "cod-wiki-zombies",
+  "description": "COD WIKI ZOMBIES",
   "version": "1.0.0",
-  "author": "Yoshihide Shiono <shiono.yoshihide@gmail.com>",
+  "author": "Zweird",
   "main": "app/background.js",
   "scripts": {
     "dev": "nextron",
@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "clsx": "^1.2.1",
+    "custom-electron-titlebar": "^4.1.6",
     "electron-serve": "^1.1.0",
     "electron-store": "^8.1.0",
     "framer-motion": "^9.0.0"
