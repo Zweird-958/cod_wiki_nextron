@@ -2,6 +2,7 @@ import { ipcRenderer } from "electron"
 import type { AppProps } from "next/app"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import { useState } from "react"
 import "../styles/globals.css"
 const ipc = ipcRenderer
 
@@ -11,6 +12,27 @@ const NAV_ITEMS = {
   "INFINITE WARD": "/studios/infiniteward",
   SLEEDGEHAMER: "/studios/sleedgehammer",
 }
+const Icon = (props) => {
+  const { icon, onClick } = props
+
+  return (
+    <svg
+      onClick={onClick}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={1.5}
+      stroke="currentColor"
+      className="mx-1 h-6 w-6 cursor-pointer hover:text-blue-800"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
+    </svg>
+  )
+}
+
+const handleBack = (router) => () => router.asPath !== "/home" && router.back()
+
+// App Function
 
 const closeButton = () => {
   ipc.send("closeApp")
@@ -26,46 +48,45 @@ const maximizeButton = () => {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
+  const [maximize, setMaximisize] = useState(false)
+
+  const changeMaxResButton = (isMaximizedApp) => setMaximisize(isMaximizedApp)
+
+  ipc.on("isMaximized", () => {
+    changeMaxResButton(true)
+  })
+  ipc.on("isRestored", () => {
+    changeMaxResButton(false)
+  })
 
   return (
     <>
       <header className="sticky top-0 z-10 shadow-xl">
-        <div className="flex rounded-t bg-blue-900">
-          <button className="w-fit bg-red-500">BACK</button>
-          <div id="drag" className="w-full text-center">
-            <h1>BAR</h1>
+        <div className="flex w-full justify-between bg-blue-900">
+          <div className="flex w-full">
+            <Icon
+              icon="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
+              onClick={handleBack(router)}
+            />
+            <div id="drag" className="w-full">
+              <h2 className="ml-5 font-medium text-gray-400">
+                ZOMBIES WIKI {maximize ? "true" : "false"}
+              </h2>
+            </div>
           </div>
           <div className="flex">
-            <button onClick={minimizeButton}>Minimize</button>
-            <button onClick={maximizeButton}>Max</button>
-            <svg
-              onClick={closeButton}
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="h-6 w-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <Icon onClick={minimizeButton} icon="M19.5 12h-15" />
+            <Icon
+              onClick={maximizeButton}
+              icon="M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"
+            />
+            <Icon onClick={closeButton} icon="M6 18L18 6M6 6l12 12" />
           </div>
         </div>
         <div className="bg-dark-blue flex justify-between p-5 ">
           <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
           <nav>
             <ul className="flex gap-6">
-              <li>
-                <button
-                  onClick={() => router.asPath !== "/home" && router.back()}
-                >
-                  BACK
-                </button>
-              </li>
               {Object.entries(NAV_ITEMS).map(([name, route]) => (
                 <li key={name} className="hover:underline">
                   <Link href={route}>{name}</Link>

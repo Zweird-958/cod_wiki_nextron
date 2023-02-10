@@ -32,9 +32,13 @@ if (isProd) {
     mainWindow.webContents.openDevTools()
   }
 
+  // Minimize
+
   ipc.on("minimizeApp", () => {
     mainWindow.minimize()
   })
+
+  // Maximize and Restore
 
   ipc.on("maximizeApp", () => {
     if (mainWindow.isMaximized()) {
@@ -43,6 +47,14 @@ if (isProd) {
       mainWindow.maximize()
     }
   })
+
+  // Check if is maximized
+
+  mainWindow.on("maximize", () => {
+    mainWindow.webContents.send("isMaximized")
+  })
+  
+  // Check if is restored
 
   mainWindow.on("unmaximize", () => {
     mainWindow.webContents.send("isRestored")
