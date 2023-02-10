@@ -15,19 +15,28 @@ const MapPage = () => {
 
   const mapChoices = MAPS[mapName]
 
+  const createComponent = (choice) => {
+    return (
+      <ChooseGame
+        href={`/${choice}/${mapRoute}`}
+        key={choice}
+        url={`/images/${gameRoute}/${mapRoute}/${choice}/cover.jpg`}
+      >
+        {CHOICES_LABEL[choice] ?? choice}
+      </ChooseGame>
+    )
+  }
+
   return (
     <>
       <Title>{currentMap.label}</Title>
       <ItemsDiv>
         {Object.keys(mapChoices).map((choice) => (
-          <ChooseGame
-            href={`/${choice}/${mapRoute}`}
-            key={choice}
-            url={`/images/${gameRoute}/${mapRoute}/${choice}/cover.jpg`}
-            // className={`bg-${image}`}
-          >
-            {CHOICES_LABEL[choice] ?? choice}
-          </ChooseGame>
+          <>
+            {mapChoices["weapons"]
+              ? !mapChoices["weapons"][choice] && createComponent(choice)
+              : createComponent(choice)}
+          </>
         ))}
       </ItemsDiv>
     </>

@@ -1,9 +1,11 @@
+import ChooseGame from "@/components/ChooseGame"
+import ItemsDiv from "@/components/ItemsDiv"
 import SecondTitle from "@/components/SecondTitle"
 import Text from "@/components/Text"
 import TextWithImageBelow from "@/components/TextWithImageBelow"
 import Title from "@/components/Title"
-import CHOICES_LABEL from "@/config/choicesLabel"
 import MAPS from "@/config/choices"
+import CHOICES_LABEL from "@/config/choicesLabel"
 import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
 import clsx from "clsx"
 import DefaultErrorPage from "next/error"
@@ -57,7 +59,10 @@ const MapChosen = () => {
     )
   }
 
-  const mapObject = MAPS[mapName][choiceName]
+  const globalMapObject = MAPS[mapName]
+  const mapObject = globalMapObject[choiceName]
+
+  // console.log(globalMapObject["weapons"].hasOwnProperty("shredder"))
 
   if (!mapObject) {
     return <DefaultErrorPage statusCode={404} />
@@ -65,28 +70,46 @@ const MapChosen = () => {
 
   return (
     <div className="">
-      <Title>{CHOICES_LABEL[choiceName] ?? choiceName}</Title>
-      {mapObject.map((step, index) => (
-        <>
-          {index === 0 && choiceName === "easterEgg" ? (
-            <>
-              <SecondTitle>{step.label ?? `Prérequis`}</SecondTitle>
-              {createComponent(step)}
-            </>
-          ) : (
-            <>
-              {!step.label && index > 0 && (
-                <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
-              )}
-              {Array.isArray(step)
-                ? step.map((item, itemIndex) =>
-                    createComponent(item, itemIndex, index)
-                  )
-                : createComponent(step, index)}
-            </>
-          )}
-        </>
-      ))}
+      <Title>
+        {CHOICES_LABEL[choiceName] ??
+          globalMapObject["weapons"][choiceName] ??
+          choiceName}
+      </Title>
+      {mapObject instanceof Object && !Array.isArray(mapObject) ? (
+        <ItemsDiv>
+          {Object.entries(mapObject).map(([route, label]) => (
+            <ChooseGame
+              key={route}
+              href={`/${route}/${mapName}`}
+              url={`/images/${gameRoute}/${mapName}/${route}/cover.jpg`}
+            >
+              {label}
+            </ChooseGame>
+          ))}
+        </ItemsDiv>
+      ) : (
+        mapObject.map((step, index) => (
+          <>
+            {index === 0 && choiceName === "easterEgg" ? (
+              <>
+                <SecondTitle>{step.label ?? `Prérequis`}</SecondTitle>
+                {createComponent(step)}
+              </>
+            ) : (
+              <>
+                {!step.label && index > 0 && (
+                  <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
+                )}
+                {Array.isArray(step)
+                  ? step.map((item, itemIndex) =>
+                      createComponent(item, itemIndex, index)
+                    )
+                  : createComponent(step, index)}
+              </>
+            )}
+          </>
+        ))
+      )}
 
       <div
         className={clsx(
