@@ -8,8 +8,8 @@ import MAPS from "@/config/choices"
 import CHOICES_LABEL from "@/config/choicesLabel"
 import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
 import clsx from "clsx"
-import DefaultErrorPage from "next/error"
 import Image from "next/image"
+import DefaultErrorPage from "next/error"
 import { useRouter } from "next/router"
 import { useState } from "react"
 
@@ -61,8 +61,6 @@ const MapChosen = () => {
 
   const globalMapObject = MAPS[mapName]
   const mapObject = globalMapObject[choiceName]
-
-  // console.log(globalMapObject["weapons"].hasOwnProperty("shredder"))
 
   if (!mapObject) {
     return <DefaultErrorPage statusCode={404} />

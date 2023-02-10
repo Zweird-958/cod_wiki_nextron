@@ -1,9 +1,9 @@
-import clsx from "clsx"
-import { useRouter } from "next/router"
 import ChooseMap from "@/components/ChooseMap"
 import ItemsDiv from "@/components/ItemsDiv"
-import { GAMES } from "@/config/games"
 import Title from "@/components/Title"
+import { GAMES } from "@/config/games"
+import clsx from "clsx"
+import { useRouter } from "next/router"
 
 const GamePages = () => {
   const router = useRouter()

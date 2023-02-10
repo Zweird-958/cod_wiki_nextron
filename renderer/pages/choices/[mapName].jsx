@@ -1,10 +1,11 @@
-import { useRouter } from "next/router"
 import ChooseGame from "@/components/ChooseGame"
 import ItemsDiv from "@/components/ItemsDiv"
-import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
 import Title from "@/components/Title"
 import MAPS from "@/config/choices"
 import CHOICES_LABEL from "@/config/choicesLabel"
+import getMapGameAndRoute from "@/utils/getMapGameAndRoute"
+import { useRouter } from "next/router"
+import DefaultErrorPage from "next/error"
 
 const MapPage = () => {
   const router = useRouter()
@@ -25,6 +26,10 @@ const MapPage = () => {
         {CHOICES_LABEL[choice] ?? choice}
       </ChooseGame>
     )
+  }
+
+  if (!mapChoices) {
+    return <DefaultErrorPage statusCode={404} />
   }
 
   return (
