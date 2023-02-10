@@ -30,11 +30,30 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <header className="sticky top-0 z-10 shadow-xl">
-        <div className="rounded-t bg-blue-900">
-          <h1>BAR</h1>
-          <button onClick={closeButton}>CLOSE</button>
-          <button onClick={minimizeButton}>Minimize</button>
-          <button onClick={maximizeButton}>Max</button>
+        <div className="flex rounded-t bg-blue-900">
+          <button className="w-fit bg-red-500">BACK</button>
+          <div id="drag" className="w-full text-center">
+            <h1>BAR</h1>
+          </div>
+          <div className="flex">
+            <button onClick={minimizeButton}>Minimize</button>
+            <button onClick={maximizeButton}>Max</button>
+            <svg
+              onClick={closeButton}
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </div>
         </div>
         <div className="bg-dark-blue flex justify-between p-5 ">
           <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
