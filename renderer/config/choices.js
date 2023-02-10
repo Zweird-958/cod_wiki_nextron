@@ -37,6 +37,12 @@ const MAPS = {
       ],
     ],
     pap: [],
+    weapons: {
+      shredder: "Shredder",
+      discord: "Discord",
+    },
+    shredder: [],
+    discord: [],
   },
   ritr: {
     easterEgg: [
@@ -61,12 +67,6 @@ const MAPS = {
         images: ["", "", ""],
       },
     ],
-    weapons: {
-      shredder: "Shredder",
-      discord: "Discord",
-    },
-    shredder: [],
-    discord: [],
   },
   aotr: {
     easterEgg: [
