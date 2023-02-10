@@ -15,7 +15,6 @@ const Home = () => {
       <Title>HOME</Title>
       <ItemsDiv>
         {Object.values(GAMES).map((itemGame) =>
-          //   <p key={name}>{name}</p>
           Object.entries(itemGame).map(([gameRoute, { label }]) => (
             <ChooseGame
               href={clsx("/games/", gameRoute)}
