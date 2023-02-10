@@ -18,7 +18,7 @@ export const GAMES = {
           label: "Rave In The Redwoods",
         },
         aotr: {
-          label: "Attack Of The Radioative ",
+          label: "Attack Of The Radioative",
         },
       },
     },
