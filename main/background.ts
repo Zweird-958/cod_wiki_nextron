@@ -1,7 +1,8 @@
-import { app } from "electron"
+import { app, ipcMain } from "electron"
 import serve from "electron-serve"
 import createWindow from "./helpers/create-window"
 
+const ipc = ipcMain
 const isProd: boolean = process.env.NODE_ENV === "production"
 
 if (isProd) {
@@ -14,8 +15,9 @@ if (isProd) {
   await app.whenReady()
 
   const mainWindow = createWindow("main", {
-    width: 1000,
-    height: 600,
+    minWidth: 1000,
+    minHeight: 600,
+    // webPreferences: {devTools: true}
   })
 
 
@@ -29,7 +31,27 @@ if (isProd) {
     await mainWindow.loadURL(`http://localhost:${port}/home`)
     mainWindow.webContents.openDevTools()
   }
+
+  ipc.on("minimizeApp", () => {
+    mainWindow.minimize()
+  })
+
+  ipc.on("maximizeApp", () => {
+    if (mainWindow.isMaximized()) {
+      mainWindow.restore()
+    } else {
+      mainWindow.maximize()
+    }
+  })
+
+  mainWindow.on("unmaximize", () => {
+    mainWindow.webContents.send("isRestored")
+  })
 })()
+
+ipc.on("closeApp", () => {
+  app.quit()
+})
 
 
 app.on("window-all-closed", () => {

@@ -9,18 +9,13 @@ setupTitlebar()
 
 const createWindow = (windowName, options) => {
   const browserOptions: BrowserWindowConstructorOptions = {
-    // ...state,
     ...options,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      // sandbox: false,
-      // preload: path.join(__dirname, 'preload.js'),
       ...options.webPreferences,
     },
-  // transparent: true
-    // titleBarStyle: "hidden",
-    //frame: false, // needed if process.versions.electron < 14
+    frame: false,
   }
   const win = new BrowserWindow(browserOptions)
 
