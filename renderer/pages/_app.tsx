@@ -12,7 +12,7 @@ const NAV_ITEMS = {
   SLEEDGEHAMER: "/studios/sleedgehammer",
 }
 const Icon = (props) => {
-  const { icon, onClick } = props
+  const { icon, onClick, ...otherProps } = props
 
   return (
     <svg
@@ -23,6 +23,7 @@ const Icon = (props) => {
       strokeWidth={1.5}
       stroke="currentColor"
       className="mx-1 h-6 w-6 cursor-pointer hover:text-blue-800"
+      {...otherProps}
     >
       <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
     </svg>
@@ -45,7 +46,7 @@ const maximizeButton = () => {
   ipc.send("maximizeApp")
 }
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
   // const [maximize, setMaximisize] = useState(false)
 
@@ -58,8 +59,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   //   changeMaxResButton(false)
   // })
 
-  const maximize = false
-
   return (
     <>
       <header className="sticky top-0 z-10 shadow-xl">
@@ -70,9 +69,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               onClick={handleBack(router)}
             />
             <div id="drag" className="w-full">
-              <h2 className="ml-5 font-medium text-gray-400">
-                ZOMBIES WIKI {maximize ? "true" : "false"}
-              </h2>
+              <h2 className="ml-5 font-medium text-gray-400">ZOMBIES WIKI</h2>
             </div>
           </div>
           <div className="flex">
