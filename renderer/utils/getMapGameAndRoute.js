@@ -7,13 +7,15 @@ const getMapGameAndRoute = (mapName) => {
         if (map === mapName) {
           return {
             gameRoute: game,
-            mapRoute: mapName,
+            mapRoute: map,
             currentMap: studioGames[game].maps[mapName],
           }
         }
       }
     }
   }
+
+  return { gameRoute: null, mapRoute: null, currentMap: null }
 }
 
 export default getMapGameAndRoute

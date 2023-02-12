@@ -29,6 +29,11 @@ const MapChosen = () => {
   }
 
   const { gameRoute } = getMapGameAndRoute(mapName)
+
+  if (!gameRoute) {
+    return <DefaultErrorPage statusCode={404} />
+  }
+
   const imagesFolder = `/images/${gameRoute}/${mapName}/${choiceName}/`
 
   const clickImage = (imageSrc) => () => {

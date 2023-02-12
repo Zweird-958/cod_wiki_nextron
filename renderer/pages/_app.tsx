@@ -2,7 +2,6 @@ import { ipcRenderer } from "electron"
 import type { AppProps } from "next/app"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
 import "../styles/globals.css"
 const ipc = ipcRenderer
 
@@ -48,16 +47,18 @@ const maximizeButton = () => {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
-  const [maximize, setMaximisize] = useState(false)
+  // const [maximize, setMaximisize] = useState(false)
 
-  const changeMaxResButton = (isMaximizedApp) => setMaximisize(isMaximizedApp)
+  // const changeMaxResButton = (isMaximizedApp) => setMaximisize(isMaximizedApp)
 
-  ipc.on("isMaximized", () => {
-    changeMaxResButton(true)
-  })
-  ipc.on("isRestored", () => {
-    changeMaxResButton(false)
-  })
+  // ipc.on("isMaximized", () => {
+  //   changeMaxResButton(true)
+  // })
+  // ipc.on("isRestored", () => {
+  //   changeMaxResButton(false)
+  // })
+
+  const maximize = false
 
   return (
     <>

@@ -4,6 +4,7 @@ import Title from "@/components/Title"
 import { GAMES } from "@/config/games"
 import clsx from "clsx"
 import { useRouter } from "next/router"
+import DefaultErrorPage from "next/error"
 
 const GamePages = () => {
   const router = useRouter()
@@ -18,9 +19,15 @@ const GamePages = () => {
         }
       }
     }
+
+    return null
   }
 
   const currentGame = getGame()
+
+  if (!currentGame) {
+    return <DefaultErrorPage statusCode={404} />
+  }
 
   return (
     <>

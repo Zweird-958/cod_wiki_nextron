@@ -16,6 +16,10 @@ const MapPage = () => {
 
   const mapChoices = MAPS[mapName]
 
+  if (!mapChoices) {
+    return <DefaultErrorPage statusCode={404} />
+  }
+
   const createComponent = (choice) => {
     return (
       <ChooseGame
