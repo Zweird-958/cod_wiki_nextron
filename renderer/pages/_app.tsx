@@ -23,7 +23,7 @@ const Icon = (props) => {
       viewBox="0 0 24 24"
       strokeWidth={1.5}
       stroke="currentColor"
-      className="mx-1 h-6 w-6 cursor-pointer hover:text-blue-800"
+      className="mx-1 h-6 w-6 cursor-pointer hover:text-blue-800 active:bg-blue-500"
       {...otherProps}
     >
       <title>{title}</title>
@@ -67,7 +67,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <header className="sticky top-0 z-10 shadow-xl">
-        <div className="flex w-full justify-between bg-blue-900">
+        <div className="flex w-full justify-between bg-gray-900">
           <div className="flex w-full">
             <Icon
               icon="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
@@ -86,7 +86,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             />
             <Icon
               onClick={maximizeButton}
-              title={maximize ? "Minimize" : "Maximize"}
+              title={maximize ? "Restore" : "Maximize"}
               icon={
                 maximize
                   ? "M9 9V4.5M9 9H4.5M9 9L3.75 3.75M9 15v4.5M9 15H4.5M9 15l-5.25 5.25M15 9h4.5M15 9V4.5M15 9l5.25-5.25M15 15h4.5M15 15v4.5m0-4.5l5.25 5.25"
@@ -100,7 +100,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             />
           </div>
         </div>
-        <div className="bg-dark-blue flex justify-between p-5 ">
+        <div className="flex justify-between bg-gray-900 p-5 ">
           <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
           <nav>
             <ul className="flex gap-6">
