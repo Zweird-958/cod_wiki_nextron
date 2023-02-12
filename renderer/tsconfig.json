@@ -16,5 +16,6 @@
       "@/images/*": ["public/images/*"],
       "@/config/*": ["config/*"],
       "@/utils/*": ["utils/*"],
+      "@/styles/*": ["styles/*"],
     }}
 }
