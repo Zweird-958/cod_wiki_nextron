@@ -66,8 +66,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
-      <header className="sticky top-0 z-10 shadow-xl">
-        <div className="flex w-full justify-between bg-gray-900">
+      <header className="sticky top-0 z-10 bg-blue-600 shadow-xl dark:bg-gray-900">
+        <div className="flex w-full justify-between">
           <div className="flex w-full">
             <Icon
               icon="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
@@ -100,7 +100,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             />
           </div>
         </div>
-        <div className="flex justify-between bg-gray-900 p-5 ">
+        <div className="flex justify-between p-5 ">
           <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
           <nav>
             <ul className="flex gap-6">
