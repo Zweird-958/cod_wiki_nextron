@@ -20,6 +20,9 @@ export const GAMES = {
         aotr: {
           label: "Attack Of The Radioative",
         },
+        shaolin: {
+          label: "Shaolin Shuffle",
+        },
       },
     },
   },

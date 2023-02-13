@@ -12,11 +12,13 @@ import Image from "next/image"
 import DefaultErrorPage from "next/error"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 const MapChosen = () => {
   const router = useRouter()
   const [showImage, setShowImage] = useState("hidden")
-  const [currentImage, setCurrentImage] = useState("")
+  const [currentImage, setCurrentImage] = useState({})
+  const [hover, setHover] = useState("hide")
 
   const mapName =
     router.query.mapName !== undefined && router.query.mapName.trim()
@@ -36,8 +38,8 @@ const MapChosen = () => {
 
   const imagesFolder = `/images/${gameRoute}/${mapName}/${choiceName}/`
 
-  const clickImage = (imageSrc) => () => {
-    setCurrentImage(imageSrc)
+  const clickImage = (imageObject) => () => {
+    setCurrentImage(imageObject)
     setShowImage(showImage === "hidden" ? "" : "hidden")
   }
 
@@ -47,12 +49,14 @@ const MapChosen = () => {
         {item.images ? (
           <TextWithImageBelow
             key={index}
-            items={item.images.map((image) => ({
+            items={item.images.map((image, imageIndex) => ({
               src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
               alt: "test",
-              onClick: clickImage(
-                `${imagesFolder}step${globalIndex ?? index}/${image}`
-              ),
+              onClick: clickImage({
+                src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
+                title: item.title && item.title[imageIndex],
+              }),
+              title: item.title && item.title[imageIndex],
             }))}
           >
             {item.text}
@@ -69,6 +73,15 @@ const MapChosen = () => {
 
   if (!mapObject) {
     return <DefaultErrorPage statusCode={404} />
+  }
+
+  const hoverVariants = {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+    },
   }
 
   return (
@@ -100,13 +113,17 @@ const MapChosen = () => {
               </>
             ) : (
               <>
-                {!step.label && index > 0 && (
+                {index > 0 && (
                   <SecondTitle>{step.label ?? `ETAPE ${index}`}</SecondTitle>
                 )}
-                {Array.isArray(step)
-                  ? step.map((item, itemIndex) =>
-                      createComponent(item, itemIndex, index)
-                    )
+                {Array.isArray(step.texts || step)
+                  ? step.texts
+                    ? step.texts.map((item, itemIndex) =>
+                        createComponent(item, itemIndex, index)
+                      )
+                    : step.map((item, itemIndex) =>
+                        createComponent(item, itemIndex, index)
+                      )
                   : createComponent(step, index)}
               </>
             )}
@@ -119,15 +136,25 @@ const MapChosen = () => {
           "fixed top-0 left-0 right-0 bottom-0 z-50 flex h-full w-full items-center justify-center bg-gray-900 bg-opacity-75",
           showImage
         )}
-        onClick={clickImage(undefined)}
+        onClick={clickImage({ src: "", title: "" })}
       >
         <div className="relative h-4/6 w-4/6">
           <Image
-            src={currentImage}
+            src={currentImage.src}
+            title={currentImage.title}
             layout="fill"
             className="rounded"
             alt="test"
+            onMouseEnter={() => setHover("show")}
+            onMouseLeave={() => setHover("hide")}
           />
+          <motion.div
+            variants={hoverVariants}
+            animate={hover}
+            className="bg-gray-opacity absolute bottom-0 z-10 flex h-12 w-full items-center justify-center text-xl text-white"
+          >
+            <p>{currentImage.title}</p>
+          </motion.div>
         </div>
       </div>
     </div>

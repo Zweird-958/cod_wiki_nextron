@@ -15,6 +15,7 @@ const TextWithImageBelow = (props) => {
             src={item.src}
             alt={item.alt}
             onClick={item.onClick}
+            title={item.title}
           />
         ))}
       </ItemsDiv>

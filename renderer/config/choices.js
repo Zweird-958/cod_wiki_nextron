@@ -11,28 +11,29 @@ const MAPS = {
         {
           text: "Vous devrez tout d'abord construire le SETI-COM. Il y a 3 pièces récupérer. La première est le parapluie, elle peut être trouver sur un banc à côté des tobogans, sur un comptoir à Polar Peak ou au sol à côté du piège de la fusée.",
           images: ["first.png", "second.png"],
+          title: ["Banc"],
         },
         {
           text: "Il faudra ensuite trouver une calculatrice, elle se situe sur un banc à côté du Pack A Punch, sur un banc de table entre le piège manège et le crocodile ou sur une poubelle à l'étage de la salle d'arcade.",
-          images: [""],
+          images: ["first.png", "second.png"],
         },
         {
           text: "Et enfin la boom-box, elle peut se trouver sur le pont inférieur entre le spawn et le middle, sur le comptoir au levier du courant vers le crocodile, ou sur le comptoir de cuisine dans les sous-sol.",
-          images: [],
+          images: ["first.png", "second.png"],
         },
       ],
       [
         {
           text: "Une fois le SETI-COM construit allez parler au DJ, et faudra patienter quelques manches et des notes retentiront, votre écran tremblera. Retournez voir le DJ, il vous donnera le SETI-COM.",
-          images: [],
+          images: ["first.png", "second.png"],
         },
         {
           text: "Maintenant vous devrez trouver des lieux où le poser, pour savoir s’il s’agit du bon lieu votre écran tremblera et vous pourrez le placer. Vous devrez le poser 3 fois, une par manche, et le protéger des zombies un certains temps, 60; 90 et 120 secondes, une bonus munition max sera donné à chaque fois la protection terminé.",
-          images: [],
+          images: ["first.png", "second.png"],
         },
         {
           text: "Lorsque vous avez fini la 3ème protection allez parler le DJ, patientez 2 manches et retournez lui parler encore, il vous donnera des haut-parleurs. Il faudra les placer au chaque emplacement au middle. Et tous les joueurs devront utiliser leur touche d’action en même temps ce qui lancera le combat de boss.",
-          images: [],
+          images: ["first.png", "second.png"],
         },
       ],
     ],
@@ -52,6 +53,37 @@ const MAPS = {
           <RedLink key="ritrpap" href="/pap/ritr">
             Pack A Punch
           </RedLink>,
+        ],
+      },
+      {
+        text: [
+          "Vous devrez récupérer les pièces du",
+          <RedLink key="ritrpap" href="/bateau/ritr">
+            bateau
+          </RedLink>,
+          ".",
+        ],
+      },
+      [
+        {
+          text: "Vous devrez récupérer des bouts d’une photo, tout d’abord allez parler à Kévin. Le principe de cette étape est de tirer sur les zombies d’une façon spécifique, bras, jambes, tête. Si vous avez bien tiré dessus une lumière bleu ira vers l’endroit où vous avez posé la photo. Une fois tué assez, l’endroit sera illuminé maintenez votre touche d’action et un mini boss va apparaître. ⚠ Vous devez le tuer rapidement sinon l’étape ne sera pas validé, de plus vous perdrez un atout. Une fois vaincu il lâchera un bonus munition max et vous pourrez récupérer la photo où vous l’avez posé.",
+        },
+        {
+          text: "Ensuite récupérer le premier bout de la photo qui se trouve derrière la scène à la Rave Party, placer le ensuite au feu de camp. Vous devrez tirer sur les bras de zombies. Une fois la pièce récupérée retournez parler à Kevin.",
+        },
+        {
+          text: "Le second bout se trouve à l’étage du spawn vers mastodonte à l’entrée, placer le ensuite à la Rave Party. Vous devrez tirer sur les jambes de zombies. Une fois la pièce récupérée retournez parler à Kevin.",
+        },
+        {
+          text: "Maintenant vous allez récupérer un crâne qui se trouve dans le sous-sol, où on active le courant. Allez le déposer à la plage et faites des tirs têtes.",
+        },
+      ],
+      {
+        label: "BOSS",
+        texts: [
+          {
+            text: "Pour allez au boss rendez vous dans le sous-sol, tous les joueurs devront appuyer sur un interrupteur au niveau d’une lumière. Prenez maintenant le bateau et le combat commencera.",
+          },
         ],
       },
     ],
@@ -175,6 +207,19 @@ const MAPS = {
       },
     ],
     pap: {},
+  },
+  shaolin: {
+    easterEgg: [
+      {
+        text: "Tout d’abord il faudra que vous récupérez votre Chi et débloquer les shurikens, allez ensuite parler au Senseï. Une cage avec un rat aura apparu, jetez un shuriken et suivez le rat, il se remettra dans une cage, répétez cela jusqu’à qu’un cercle jaune apparaît. Maintenant vous devrez tuer des zombies dans le cercle, le cercle disparaitra et des zombies ninja vont apparaître tuez les et une clé sera droppé.",
+      },
+      {
+        text: "Une fois la clé récupérer vous devrez ouvrir un casier qui se trouve au niveau du métro de double coup. Il faudra maintenant tirer sur des symboles dans un ordre précis. ⚠Attention si jamais vous tirez sur le mauvais symbole il faudra recommencer l’ordre de 0.⚠ Le premier symbole se trouve à côté du Dojo (celui de gauche), le deuxième est au niveau des toilettes de la discothèque (le deuxième), les derniers se trouvent vers la Volt (celui de gauche et celui du milieu).",
+      },
+      {
+        text: "",
+      },
+    ],
   },
 }
 

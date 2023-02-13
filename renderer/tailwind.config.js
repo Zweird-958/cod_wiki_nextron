@@ -11,7 +11,7 @@ module.exports = {
         iw: "url('../public/images/iw/cover.jpg')",
         spaceland: "url('../public/images/iw/spaceland/cover.jpg')",
       },
-      // colors: { "dark-blue": "#111827" },
+      colors: { "gray-opacity": "rgba(31, 41, 55, 0.54)" },
     },
   },
   plugins: [require("tailwind-scrollbar")],
