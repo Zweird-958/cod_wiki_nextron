@@ -23,7 +23,7 @@ const LinkImage = (props) => {
         animate="hide"
         initial="hide"
         className={clsx(
-          "m-5 flex cursor-pointer items-center justify-center rounded bg-blue-600 bg-cover bg-center shadow-md grayscale hover:grayscale-0",
+          "m-5 flex cursor-pointer items-center justify-center rounded bg-blue-600 bg-cover bg-center text-white shadow-lg grayscale duration-500 hover:grayscale-0",
           className
         )}
         style={{
