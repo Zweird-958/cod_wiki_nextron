@@ -16,6 +16,7 @@
     "postinstall": "electron-builder install-app-deps"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.10",
     "clsx": "^1.2.1",
     "custom-electron-titlebar": "^4.1.6",
     "electron-serve": "^1.1.0",
