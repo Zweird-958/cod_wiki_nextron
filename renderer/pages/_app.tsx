@@ -3,6 +3,7 @@ import type { AppProps } from "next/app"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import "@/styles/globals.css"
+import Toggle from "@/components/Toggle"
 import { useEffect, useState } from "react"
 const ipc = ipcRenderer
 
@@ -67,6 +68,8 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <header className="sticky top-0 z-10 bg-blue-600 shadow-xl dark:bg-gray-900">
+        {/* Window Bar */}
+
         <div className="flex w-full justify-between">
           <div className="flex w-full">
             <Icon
@@ -100,10 +103,14 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             />
           </div>
         </div>
-        <div className="flex justify-between p-5 ">
+
+        {/* Nav Bar */}
+
+        <div className="flex justify-between p-5 text-white ">
           <h1 className="font-bold">Zombies Wiki 🧟‍♂️</h1>
           <nav>
             <ul className="flex gap-6">
+              <Toggle />
               {Object.entries(NAV_ITEMS).map(([name, route]) => (
                 <li key={name} className="hover:underline">
                   <Link href={route}>{name}</Link>
