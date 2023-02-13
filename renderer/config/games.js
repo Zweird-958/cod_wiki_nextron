@@ -23,6 +23,9 @@ export const GAMES = {
         shaolin: {
           label: "Shaolin Shuffle",
         },
+        tbfb: {
+          label: "The Beast From Beyond",
+        },
       },
     },
   },
