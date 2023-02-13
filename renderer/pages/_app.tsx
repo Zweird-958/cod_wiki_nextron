@@ -1,9 +1,10 @@
+import Icon from "@/components/Icon"
+import Toggle from "@/components/Toggle"
+import "@/styles/globals.css"
 import { ipcRenderer } from "electron"
 import type { AppProps } from "next/app"
 import Link from "next/link"
 import { useRouter } from "next/router"
-import "@/styles/globals.css"
-import Toggle from "@/components/Toggle"
 import { useEffect, useState } from "react"
 const ipc = ipcRenderer
 
@@ -12,25 +13,6 @@ const NAV_ITEMS = {
   TREYARCH: "/studios/treyarch",
   "INFINITE WARD": "/studios/infiniteward",
   SLEEDGEHAMER: "/studios/sleedgehammer",
-}
-const Icon = (props) => {
-  const { icon, onClick, title, ...otherProps } = props
-
-  return (
-    <svg
-      onClick={onClick}
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="mx-1 h-6 w-6 cursor-pointer hover:text-blue-800 active:bg-blue-500"
-      {...otherProps}
-    >
-      <title>{title}</title>
-      <path strokeLinecap="round" strokeLinejoin="round" d={icon} />
-    </svg>
-  )
 }
 
 const handleBack = (router) => () => router.asPath !== "/home" && router.back()
@@ -47,6 +29,15 @@ const minimizeButton = () => {
 
 const maximizeButton = () => {
   ipc.send("maximizeApp")
+}
+
+const HeaderIcons = (props) => {
+  return (
+    <Icon
+      className="cursor-pointer hover:text-blue-800 active:bg-blue-500"
+      {...props}
+    />
+  )
 }
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
@@ -72,7 +63,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
         <div className="flex w-full justify-between">
           <div className="flex w-full">
-            <Icon
+            <HeaderIcons
               icon="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 010 12h-3"
               onClick={handleBack(router)}
               title="Back"
@@ -82,12 +73,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             </div>
           </div>
           <div className="flex">
-            <Icon
+            <HeaderIcons
               onClick={minimizeButton}
               icon="M19.5 12h-15"
               title="Minimize"
             />
-            <Icon
+            <HeaderIcons
               onClick={maximizeButton}
               title={maximize ? "Restore" : "Maximize"}
               icon={
@@ -96,7 +87,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
                   : "M3.75 3.75v4.5m0-4.5h4.5m-4.5 0L9 9M3.75 20.25v-4.5m0 4.5h4.5m-4.5 0L9 15M20.25 3.75h-4.5m4.5 0v4.5m0-4.5L15 9m5.25 11.25h-4.5m4.5 0v-4.5m0 4.5L15 15"
               }
             />
-            <Icon
+            <HeaderIcons
               onClick={closeButton}
               title="Close"
               icon="M6 18L18 6M6 6l12 12"
@@ -111,6 +102,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <nav>
             <ul className="flex gap-6">
               <Toggle />
+              {/* <LightDarkButton /> */}
               {Object.entries(NAV_ITEMS).map(([name, route]) => (
                 <li key={name} className="hover:underline">
                   <Link href={route}>{name}</Link>
