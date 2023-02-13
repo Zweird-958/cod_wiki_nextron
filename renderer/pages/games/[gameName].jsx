@@ -38,6 +38,7 @@ const GamePages = () => {
             href={clsx("/choices/", mapRoute)}
             key={mapRoute}
             url={`/images/${gameName}/${mapRoute}/cover.jpg`}
+            className="basis-1/4"
           >
             {label}
           </ChooseMap>
