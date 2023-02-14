@@ -145,8 +145,16 @@ const MapChosen = () => {
             layout="fill"
             className="rounded"
             alt="test"
-            onMouseEnter={() => setHover("show")}
-            onMouseLeave={() => setHover("hide")}
+            onMouseEnter={() => {
+              if (currentImage.title) {
+                setHover("show")
+              }
+            }}
+            onMouseLeave={() => {
+              if (currentImage.title) {
+                setHover("hide")
+              }
+            }}
           />
           <motion.div
             variants={hoverVariants}
