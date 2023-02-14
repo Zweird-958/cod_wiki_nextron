@@ -107,65 +107,78 @@ const MAPS = {
       },
       [
         {
-          images: [],
+          images: ["couperet.png", "zombieSoldat.png"],
           text: "Vous allez récupérer des membres d'un zombie, vous aurez besoin du couperet qui se situé dans un requin dans le magasin. Le premier membre est son bras gauche, pour cela il suffit de tuer un zombie soldat (le premier, apparaît manche 5) avec le couperet.",
         },
         {
-          images: [],
+          images: ["zombieGrenade.png", "grillage.png", "car.png"],
           text: "Récupérer sa jambe gauche dans l'arbre à l'aide d'une grenade. Récupérer la pièce à côté au niveau des grillages. Ensuite sous la voiture il y a une pièce.",
         },
         {
-          images: [],
-          text: "Cassez le miroir dans les toilettes et récupérer le morceau. Il y a une pièce sur un banc dans le camping. En allant vers la plage vous aurez une pièce sur un banc.",
+          images: ["mirorBreak.png", "bench.png", "fireArm.png", "beach.png"],
+          text: "Cassez le miroir dans les toilettes et récupérer le morceau. Il y a une pièce sur un banc dans le camping, et un bras du zombie dans le feu de camp. En allant vers la plage vous aurez une pièce sur un banc.",
         },
         {
-          images: [],
+          images: ["trap.png", "bridge.png"],
+          text: "Activez le piège résonateur sur le bras de zombie sur la plage, une fois le bras sorti prenez-le. Sous le pont au fond de la plage, vous aurez une autre pièce.",
+        },
+        {
+          images: ["freezeTrap.png", "freezeTrap2.png", "meat.png"],
           text: "Profitez en pour récupérer la pièce du piege du frigo vers le magasin. Mettez la pièce et activez le piège, une fois terminé cassez le bout de viande et récupérez le torse.",
         },
         {
-          images: [],
+          images: ["retro.png", "spawnShop.png"],
           text: "Cassez le retro de la voiture blanche et récupérez le. Il y aura une pièce sur un canapé dans le couloir entre le spawn et le magasin.",
-        },
-        {
-          images: [],
-          text: "Activez le piège résonateur sur le bras de zombie sur la plage, une fois le bras sorti prenez-le. Sous le pont au fond de la plage, vous aurez une autre pièce.",
         },
 
         {
-          images: [],
+          images: ["elvira.png", "grimoire.png", "map.png"],
           text: "Allez parler à Elvira, récupérer son grimoire au dinner et la carte à côté. Retournez voir Elvira donnez-lui son grimoire, elle vous donnera une fiole, il faudra tuer des zombies avec le couperet.",
         },
         {
-          images: [],
+          images: ["miror.png", "pap.png"],
           text: "Une fois remplie, reparlez à Elvira, elle se lèvera récupérez son miroir sur son siège, et emmenez là à un endroit pour activer le Pack A Punch.",
         },
         {
-          images: [],
+          images: ["button.png", "pappiece.png", "head.png"],
           text: "Allez dans le Pack A Punch, appuyez sur le bouton, resortez, une fois dans la caravane cassez le placard, prenez la pièce et récupérez la tête du zombie.",
         },
         {
-          images: [],
+          images: ["zombie.png", "miror1.png", "miror2.png", "miror3.png"],
           text: "Recomposez le zombie sur la table au spawn. Placez les miroirs aux 3 emplacements suivant.",
         },
         {
-          images: [],
+          images: [
+            "code.png",
+            "code2.png",
+            "code3.png",
+            "laser.png",
+            "key.png",
+          ],
           text: "Il faudra ensuite rentrer un code à 5 chiffres non connu (chaque point représente un chiffre allant de 0 à 9), chaque code est constitué de 3 4 5 6 8 il faudra juste trouver l'ordre. Une fois le code rentré il faudra activer le laser et rentrant un nouveau code qui sera le code précédent mais dans le sens inverse. Réactivez maintenant le laser puis récupérez les clés laissées par le zombie.",
         },
       ],
       [
         {
-          images: [],
+          images: ["code.png", "valve.png"],
           text: "Sous une table à côté du magasin il y a un code, il faudra régler chaque valve sur le niveau d'un chiffre du code (vous n'avez pas d'ordre à respecter).",
         },
         {
-          images: [],
+          images: ["valve2.png", "valve3.png", "valve4.png", "valve5.png"],
+          text: "Les emplacements de chaque valve sont : station essence, à l'endroit du pied de biche, à côté de speed cola, derrière la cabane du courant.",
+        },
+        {
+          images: ["bombCode.png"],
           text: "Une fois chaque chiffre rentré le coffre fort sera ouvert, récupérer le code de la bombe.",
         },
       ],
       [
         {
-          images: [],
           text: "Maintenant il faudra trouver la valeur de PHI, pour la connaitre il faudra juste utiliser les filtres de couleurs et l'égal à côté du symbole PHI ne doit être barré sur n'importe quelle couleur.",
+        },
+        {
+          images: ["phi.png", "phi2.png", "phi3.png", "phi4.png"],
+          text: "Voici les emplacements de phi : au niveau du pont, dans le couleur entre le magasin et le spawn, dans une porte vitrée de la station service, sur un frigo à travers une vitre d'un camping-car",
         },
         {
           images: [],
