@@ -174,6 +174,7 @@ const MAPS = {
       ],
       [
         {
+          images: ["color.png"],
           text: "Maintenant il faudra trouver la valeur de PHI, pour la connaitre il faudra juste utiliser les filtres de couleurs et l'égal à côté du symbole PHI ne doit être barré sur n'importe quelle couleur.",
         },
         {
@@ -181,7 +182,7 @@ const MAPS = {
           text: "Voici les emplacements de phi : au niveau du pont, dans le couleur entre le magasin et le spawn, dans une porte vitrée de la station service, sur un frigo à travers une vitre d'un camping-car",
         },
         {
-          images: [],
+          images: ["m.png", "color2.png"],
           text: "Il faudra aussi la valeur de M qui est à l'accueil de l'hôtel. Il faudra donc faire PHI x M et comparer le résultat avec les nombres à côté des couleurs sur la télé.",
         },
         {
@@ -198,7 +199,6 @@ const MAPS = {
           ],
         },
         {
-          images: [],
           text: "Le programme va demander certaines valeurs des tableaux en commençant du spawn, courant, garage, plage, camping, studio d'enregistrement.",
         },
         {
