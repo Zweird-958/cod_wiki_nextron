@@ -51,7 +51,7 @@ const MapChosen = () => {
             key={index}
             items={item.images.map((image, imageIndex) => ({
               src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
-              alt: "test",
+              alt: image.replace(".png", ""),
               onClick: clickImage({
                 src: `${imagesFolder}step${globalIndex ?? index}/${image}`,
                 title: item.title && item.title[imageIndex],
@@ -144,7 +144,7 @@ const MapChosen = () => {
             title={currentImage.title}
             layout="fill"
             className="rounded"
-            alt="test"
+            alt="Image clicked!"
             onMouseEnter={() => {
               if (currentImage.title) {
                 setHover("show")
